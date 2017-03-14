@@ -5,7 +5,9 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version: 2.4.0p0
+* Rails version: 5.0.2
+* rvm use gemset rails 5.0
 
 * System dependencies
 
