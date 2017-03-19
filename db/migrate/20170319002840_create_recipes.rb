@@ -8,6 +8,8 @@ class CreateRecipes < ActiveRecord::Migration[5.0]
       t.string :notes
       t.string :source
       t.string :url
+      t.string :description
+      t.string :img_url
 
       t.timestamps
     end

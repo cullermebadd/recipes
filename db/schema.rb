@@ -10,7 +10,62 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170318183110) do
+ActiveRecord::Schema.define(version: 20170319021501) do
+
+  create_table "direction_groups", force: :cascade do |t|
+    t.string   "heading"
+    t.integer  "recipe_id",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "directions", force: :cascade do |t|
+    t.string   "direction",          null: false
+    t.integer  "direction_group_id", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  create_table "ingredient_groups", force: :cascade do |t|
+    t.string   "heading"
+    t.integer  "recipe_id",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string   "ingredient",          null: false
+    t.integer  "ingredient_group_id", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  create_table "recipe_tags", force: :cascade do |t|
+    t.integer  "recipe_id",  null: false
+    t.integer  "tag_id",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.integer  "user_id",     null: false
+    t.string   "title",       null: false
+    t.integer  "active_time"
+    t.integer  "total_time"
+    t.string   "notes"
+    t.string   "source"
+    t.string   "url"
+    t.string   "description"
+    t.string   "img_url"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name",      null: false
